@@ -28,12 +28,12 @@ public class CalculadoraServiceTest {
     }
 
     @Test
-    @DisplayName("Quando acionado com 10 e 00, então deve lançar uma exceção")
+    @DisplayName("Quando acionado com 10 e 0, então deve lançar uma exceção")
     public void testDividirPorZero() {
         CalculadoraService calculadoraService = new CalculadoraService();
         double a = 10;
         double b = 0;
-        var expectedMessage = "400 BAD_REQUEST \"Divisão por zero não permitida\"";
+        var expectedMessage = "400 BAD_REQUEST \"Divisão por zero não permitida.\"";
 
         ResponseStatusException ex = assertThrows(
                 ResponseStatusException.class,
