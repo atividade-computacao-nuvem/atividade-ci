@@ -1,31 +1,18 @@
 package atividade.ci.atividadedeployment.service;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpStatusCodeException;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class CalculadoraService {
 
     public double dividir(double a, double b) {
         if (b == 0) {
-        throw new HttpStatusCodeException(HttpStatusCode.valueOf(400), "Divisão por zero") {
-            @Override
-            public int getRawStatusCode() {
-                return 400;
-            }
-
-            @Override
-            public String getStatusText() {
-                return "Divisão por zero";
-            }
-
-            @Override
-            public String getResponseBodyAsString() {
-                return "Divisão por zero";
-            }
-        };
-
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
+                    "Divisão por zero não permitida.");
         }
         return a / b;
     }
