@@ -28,7 +28,7 @@ public class CalculadoraServiceTest {
     }
 
     @Test
-    @DisplayName("Quando acionado com 10 e 0, então deve lançar uma exceção")
+    @DisplayName("Quando acionado com 10 e 00, então deve lançar uma exceção")
     public void testDividirPorZero() {
         CalculadoraService calculadoraService = new CalculadoraService();
         double a = 10;
